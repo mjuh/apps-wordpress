@@ -1,4 +1,6 @@
+#
 # ПРИВЕТ
+# WP-CLI 1.4.1, WordPress 4.9 
 # WORDPRESS INSTALLER
 
 ## docker run -it --user="UID:$GID"\
