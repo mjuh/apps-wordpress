@@ -15,3 +15,5 @@ docker run -it --user="UID:$GID" \
             wp-installer
 ```
 
+TEST_MESAAGE
+
