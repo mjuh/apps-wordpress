@@ -1,14 +1,19 @@
-FROM php:7.0-apache
+FROM php:7.0-cli-alpine
 
-# Customize any core extensions here
-#RUN apt-get update && apt-get install -y \
-#        libfreetype6-dev \
-#        libjpeg62-turbo-dev \
-#        libmcrypt-dev \
-#        libpng12-dev \
-#    && docker-php-ext-install -j$(nproc) iconv mcrypt \
-#    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-#    && docker-php-ext-install -j$(nproc) gd
+RUN apk update \
+    && apk add curl mysql-client \
+    && curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/bin/wp \
+    && chmod +x /usr/bin/wp \
+    && docker-php-ext-install mysqli \
+    && reset 
+    
+RUN mkdir -p /cms \
+    && wp core download --path=/cms --allow-root \
+    && cd /cms \
+    && tar -czvf /cms.tar.gz . \
+    && chmod +r /cms.tar.gz \
+    && rm -rf /cms
 
-COPY config/php.ini /usr/local/etc/php/
-COPY src/ /var/www/html/
+COPY install.sh /install
+RUN chmod +x /install
+ENTRYPOINT ["/install"]
