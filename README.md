@@ -3,17 +3,15 @@
 # WORDPRESS INSTALLER
 
 ``` 
-docker run -it --user="UID:$GID" \
-            -e UID=2005 -e USER=u2005 \
-            -e DOC_ROOT=/home/utkin/wordpress-installer/site \
-            -e DB_NAME=b200135_forest -e DB_USER=u200135_forest \ 
-            -e DB_PASS=9811255794forest -e DB_HOST=78.108.80.175 \
-            -e DB_PREFIX=wp_ -e DOMAIN=forest.groots.ga \
-            -e PASSWORD=9811255794forest \
-            -e ADMIN_EMAIL=admin@groots.ga \
-            -v /home/utkin/wordpress-installer/site:/home/utkin/wordpress-installer/site \ 
-            wp-installer
+docker run -it --user="$UID:$GID" \
+            -e USER=$USER \
+            -e DOC_ROOT=$DOC_ROOT \
+            -e DB_NAME=$DB_NAME -e DB_USER=$DB_NAME \ 
+            -e DB_PASS=$DB_PASS -e DB_HOST=$DB_HOST \
+            -e DB_PREFIX=wp_ -e DOMAIN=$DOMAIN \
+            -e PASSWORD=$ADMIN_PASSWORD \
+            -e ADMIN_EMAIL=$ADMIN_EMAIL \
+            -v $DOC_ROOT:$DOC_ROOT \ 
+            wp-installer:v4.9-test
 ```
-
-TEST_MESAAGE
 
