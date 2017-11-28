@@ -1,5 +1,6 @@
 FROM php:7.0-cli-alpine
 
+WORKDIR /workdir
 COPY files/wp /usr/bin/wp
 COPY files/wordpress-4.9.tar.gz /cms.tar.gz
 
