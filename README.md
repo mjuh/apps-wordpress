@@ -1,5 +1,5 @@
 ![test-logo](http://ci.intr:90/job/mj-system/job/wp-installer/badge/icon)
-# ПРИВЕТ
+# ПРИВЕТ 
 # WP-CLI 1.4.1, WordPress 4.9 
 # WORDPRESS INSTALLER
 ``` 
