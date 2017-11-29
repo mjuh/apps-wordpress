@@ -2,7 +2,7 @@ FROM php:7.0-cli-alpine
 
 WORKDIR /workdir
 COPY files/wp /usr/bin/wp
-COPY files/wordpress-4.9.tar.gz /cms.tar.gz
+COPY files/wordpress-4.8.tar.gz /cms.tar.gz
 
 RUN apk update \
     && apk add mysql-client \
