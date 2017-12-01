@@ -1,8 +1,7 @@
 ![test-logo](http://ci.intr:90/job/apps/job/wordpress/badge/icon)
 # ПРИВЕТ
-# WP-CLI 1.4.1, WordPress 4.9.1 
+# WP-CLI 1.4.1, WordPress 4.8.4 
 # WORDPRESS INSTALLER
- APPSCAT ["DB_HOST","APP_TITLE""DB_NAME","ADMIN_USERNAME","DB_PASSWORD","DB_USER","ADMIN_EMAIL","ADMIN_PASSWORD","APP_URL"]
 ``` 
 docker run -it --user="$UID:$GID" \
             -e ADMIN_USERNAME=$ADMIN_USERNAME \
@@ -13,6 +12,6 @@ docker run -it --user="$UID:$GID" \
             -e ADMIN_PASSWORD=$ADMIN_PASSWORD \
             -e ADMIN_EMAIL=$ADMIN_EMAIL \
             -v $DOC_ROOT:/workdir \ 
-            wp-installer:4.9.1
+            wp-installer:4.8.4
 ```
 
