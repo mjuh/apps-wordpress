@@ -1,6 +1,6 @@
 ![test-logo](http://ci.intr:90/job/apps/job/wordpress/badge/icon)
 # ПРИВЕТ
-# WP-CLI 1.4.1, WordPress 4.8.4 
+# WP-CLI 1.4.1, WordPress 4.9 
 # WORDPRESS INSTALLER
 ``` 
 docker run -it --user="$UID:$GID" \
@@ -12,6 +12,6 @@ docker run -it --user="$UID:$GID" \
             -e ADMIN_PASSWORD=$ADMIN_PASSWORD \
             -e ADMIN_EMAIL=$ADMIN_EMAIL \
             -v $DOC_ROOT:/workdir \ 
-            wp-installer:4.8.4
+            wp-installer:4.9
 ```
 
