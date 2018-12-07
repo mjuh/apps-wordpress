@@ -2,7 +2,7 @@ FROM php:7.0-cli-alpine
 
 WORKDIR /workdir
 COPY files/wp /usr/bin/wp
-ADD files/wp-dist-v.4.9.8 /cms
+ADD files/wp-dist-v.5.0.0 /cms
 
 RUN apk update \
     && apk add mysql-client \
