@@ -1,6 +1,6 @@
 ![test-logo](http://ci.intr:90/job/apps/job/wordpress/badge/icon)
 # ПРИВЕТ
-# WP-CLI 1.4.1, WordPress 4.9.1 
+# WP-CLI 1.4.1, WordPress 5.0.2 
 # WORDPRESS INSTALLER
 APPSCAT parameters:
 
@@ -29,6 +29,6 @@ docker run -it --user="$UID:$GID" \
             -e ADMIN_PASSWORD=$ADMIN_PASSWORD \
             -e ADMIN_EMAIL=$ADMIN_EMAIL \
             -v DOC_ROOT:/workdir \ 
-            wp-installer:4.9.1
+            wp-installer:5.0.2
 ```
 
