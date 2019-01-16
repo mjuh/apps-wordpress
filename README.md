@@ -1,6 +1,6 @@
 ![test-logo](http://ci.intr:90/job/apps/job/wordpress/badge/icon)
 # ПРИВЕТ
-# WP-CLI 1.4.1, WordPress 5.0.2 
+# WP-CLI 1.4.1, WordPress 5.0.3 
 # WORDPRESS INSTALLER
 APPSCAT parameters:
 
