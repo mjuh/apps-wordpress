@@ -12,7 +12,7 @@ in stdenv.mkDerivation rec {
   inherit version;
 
   src = fetchurl {
-    url = "https://wordpress.org/${pname}-${version}.tar.gz";
+    url = "https://wordpress.org/wordpress-${version}.tar.gz";
     sha256 = versionHashMap."${version}";
   };
 
