@@ -9,6 +9,10 @@ nixpkgs = (import <nixpkgs> { }).fetchgit {
 # WordPress 3.7 or later. 
 # Versions older than the latest WordPress release may have degraded functionality
 in rec {
+  wp-5-6 = import ./container.nix {
+    inherit nixpkgs;
+    wp_version = "5.6";
+  };
   wp-5-5-3 = import ./container.nix {
     inherit nixpkgs;
     wp_version = "5.5.3";
