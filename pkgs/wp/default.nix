@@ -2,6 +2,7 @@
 
 let
   versionHashMap = {
+    "5.6" = "1lzwqp23i7dz7n7szc9n6x157472rcf9pxpzw7ix8ysmfprndx27";
     "5.5.3" = "1m5fkgiimrrcii0xm06sbwsz0npkaj830i03bwxmrfjcpxv2cfdi";
     "4.7" = "0xv99p0qkivanfdg5nlwihh0mmrghgr810m55cnswvbif3zjgbky";
   };
