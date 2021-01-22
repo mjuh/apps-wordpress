@@ -18,7 +18,7 @@ pipeline {
                 axes {
                     axis {
                         name "db_version"
-                        values "5.5.3", "4.7"
+                        values "5.5.3", "4.7", "5.6"
                     }
                 }
                 stages {
