@@ -46,7 +46,7 @@ let
       ${wp-cli}/bin/wp language core install ru_RU
       ${wp-cli}/bin/wp language core activate ru_RU
 
-      ${mariadb.client}/bin/mysql -h$DB_HOST -u$DB_USER -p$DB_PASSWORD $DB_NAME -e "CREATE INDEX autoload ON wp_options(autoload)"
+      ${mariadb.client}/bin/mysql -h$DB_HOST -u$DB_USER -p$DB_PASSWORD $DB_NAME -e "CREATE INDEX autoload ON wp_options(autoload)" || true
       EOF
 
       chmod 555 $out/bin/${name}.sh
