@@ -17,7 +17,7 @@ pipeline {
             matrix {
                 axes {
                     axis {
-                        name "db_version"
+                        name "wp_version"
 			// 4.7 версия нужна для тестов
                         values "5.6", "5.7", "4.7"
                     }
@@ -27,12 +27,12 @@ pipeline {
                         steps {
                             gitlabCommitStatus(STAGE_NAME) {
                                 script {
-                                    dockerImage[db_version] = nixBuildDocker (
+                                    dockerImage[wp_version] = nixBuildDocker (
                                         namespace: GROUP_NAME,
                                         name: PROJECT_NAME,
                                         currentProjectBranch: GIT_BRANCH,
                                         overlaybranch: "master",
-                                        nixArgs: ["-A wp-${db_version.replaceAll('\\.','-')}"]
+                                        nixArgs: ["-A wp-${wp_version.replaceAll('\\.','-')}"]
                                     )
                                 }
                             }
@@ -43,10 +43,10 @@ pipeline {
                             gitlabCommitStatus(STAGE_NAME) {
                                 script {
                                     pushDocker (
-                                        image: dockerImage[db_version],
-                                        tag: "${GIT_BRANCH}_${db_version}"
+                                        image: dockerImage[wp_version],
+                                        tag: "${GIT_BRANCH}_${wp_version}"
                                     )
-                                    slackMessages += "docker-registry.intr/${GROUP_NAME}/${PROJECT_NAME}:${GIT_BRANCH}_${db_version} pushed to registry"
+                                    slackMessages += "docker-registry.intr/${GROUP_NAME}/${PROJECT_NAME}:${GIT_BRANCH}_${wp_version} pushed to registry"
                                 }
                             }
                         }
