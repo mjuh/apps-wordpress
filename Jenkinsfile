@@ -19,7 +19,7 @@ pipeline {
                     axis {
                         name "db_version"
 			// 4.7 версия нужна для тестов
-                        values "5.5.3", "4.7"
+                        values "5.6", "5.7", "4.7"
                     }
                 }
                 stages {

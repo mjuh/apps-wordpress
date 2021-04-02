@@ -13,10 +13,17 @@ in rec {
     inherit nixpkgs;
     wp_version = "5.6";
   };
+
+  wp-5-7 = import ./container.nix {
+    inherit nixpkgs;
+    wp_version = "5.7";
+  };
+
   wp-5-5-3 = import ./container.nix {
     inherit nixpkgs;
     wp_version = "5.5.3";
   };
+
   wp-4-7 = import ./container.nix {
     inherit nixpkgs;
     wp_version = "4.7";
