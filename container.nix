@@ -1,8 +1,6 @@
-{ nixpkgs,
-  wp_version
-}:
+{ nixpkgs, wp_version, system }:
 
-with import nixpkgs { };
+with import nixpkgs { inherit system; };
 let
   wp = callPackage ./pkgs/wp { wp_version = wp_version; };
 
