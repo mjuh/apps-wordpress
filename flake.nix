@@ -35,12 +35,12 @@
 
       deploy-5-8 = majordomo.outputs.deploy {
         tag = "apps/wordpress";
-        pkg_name = "wordpress-5-8";
+        pkg_name = "wp-5-8";
         postfix = "_5_8";
       };
     };
 
-    defaultPackage.${system} = self.packages.${system}.wordpress-5-8;
+    defaultPackage.${system} = self.packages.${system}.wp-5-8;
   };
 }
 
