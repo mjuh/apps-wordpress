@@ -1,8 +1,9 @@
-{ nixpkgs, wp_version, system }:
+{ pkgs }:
 
-with import nixpkgs { inherit system; };
+with pkgs;
+
 let
-  wp = callPackage ./pkgs/wp { wp_version = wp_version; };
+  wp = pkgs.wordpress;
 
   configCommand = builtins.concatStringsSep " " [
     "${wp-cli}/bin/wp core config"
@@ -35,7 +36,7 @@ let
       export PATH=${gnutar}/bin:${coreutils}/bin:${gzip}/bin:${mariadb.client}/bin
 
       echo "Extract installer archive."
-      tar -xf ${wp} --strip 1
+      tar -xf ${wp.src} --strip 1
 
       echo "Install."
       ${configCommand}
@@ -53,7 +54,7 @@ let
 
 in pkgs.dockerTools.buildLayeredImage rec {
   name = "docker-registry.intr/apps/wordpress";
-  tag = "latest";
+  tag = "master";
 
   contents = [ bashInteractive coreutils gnutar gzip entrypoint mariadb.client ];
   config = {
