@@ -1,10 +1,8 @@
-{ pkgs }:
+{ pkgs, wp }:
 
 with pkgs;
 
 let
-  wp = pkgs.wordpress;
-
   configCommand = builtins.concatStringsSep " " [
     "${wp-cli}/bin/wp core config"
     "--locale=ru_RU"
@@ -36,16 +34,13 @@ let
       export PATH=${gnutar}/bin:${coreutils}/bin:${gzip}/bin:${mariadb.client}/bin
 
       echo "Extract installer archive."
-      tar -xf ${wp.src} --strip 1
+      tar -xf ${wp} --strip 1
 
       echo "Install."
       ${configCommand}
       ${installCommand}
 
-      ${wp-cli}/bin/wp language core install ru_RU
-      ${wp-cli}/bin/wp language core activate ru_RU
-
-      ${mariadb.client}/bin/mysql -h$DB_HOST -u$DB_USER -p$DB_PASSWORD $DB_NAME -e "CREATE INDEX autoload ON wp_options(autoload)" || true
+      mysql -h$DB_HOST -u$DB_USER -p$DB_PASSWORD $DB_NAME -e "CREATE INDEX autoload ON wp_options(autoload)" || true
       EOF
 
       chmod 555 $out/bin/${name}.sh
